@@ -1,22 +1,30 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+@extends('layouts.app')
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-        <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body>
-    <x-navbar/>
-    {{-- @include('components.sidebar') --}}
-    <div class="p-20 m-20">
-        <h1>Ini Halaman Profile</h1>
-        <p>Nama : {{ $name }}</p>
+@section('content')
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card card-custom p-4 text-center">
+            <div class="mb-3">
+                <span class="fs-1 p-3 bg-danger-subtle rounded-circle d-inline-block">👩‍🍳</span>
+            </div>
+            <h4 class="fw-bold text-danger mb-1">{{ $username }}</h4>
+            <p class="text-muted small mb-3">Master Baker & Member VIP</p>
+
+            <ul class="list-group list-group-flush text-start border-top border-bottom my-3">
+                <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                    <span class="text-muted">Username</span>
+                    <span class="fw-semibold">{{ $username }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                    <span class="text-muted">Role Akses</span>
+                    <span class="badge bg-danger-subtle text-danger">Administrator</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                    <span class="text-muted">Status Akun</span>
+                    <span class="badge bg-success-subtle text-success">Aktif</span>
+                </li>
+            </ul>
+        </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
-    </body>
-</html>
+</div>
+@endsection

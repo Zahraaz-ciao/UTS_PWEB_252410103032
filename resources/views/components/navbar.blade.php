@@ -1,31 +1,30 @@
-<nav class="bg-blue-200 fixed w-full z-20 top-0 start-0 border-b border-default">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="https://flowbite.com/docs/images/logo.svg" class="h-7" alt="Flowbite Logo" />
-            <span class="self-center text-xl text-heading font-semibold whitespace-nowrap">Flowbite</span>
+@props(['username' => 'Guest'])
+
+<nav class="navbar navbar-expand-lg navbar-custom py-3">
+    <div class="container">
+        <a class="navbar-brand fw-bold text-danger" href="{{ route('dashboard', ['username' => $username]) }}">
+            🍰 Sweet Bakery
         </a>
-        <button data-collapse-toggle="navbar-default" type="button" class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary" aria-controls="navbar-default" aria-expanded="false">
-            <span class="sr-only">Open main menu</span>
-            <svg class="w-6 h-6" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M5 7h14M5 12h14M5 17h14"/></svg>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-        <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
-            <li>
-                <a href="{{ route('homepage') }}" class="block py-2 px-3 text-white bg-brand rounded md:bg-transparent md:text-fg-brand md:p-0" aria-current="page">Home</a>
-            </li>
-            <li>
-                {{-- <a href="{{ route('profile') }}" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Profile</a> --}}
-            </li>
-            <li>
-                <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Services</a>
-            </li>
-            <li>
-                <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Pricing</a>
-            </li>
-            <li>
-                <a href="#" class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent">Contact</a>
-            </li>
-        </ul>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="{{ route('dashboard', ['username' => $username]) }}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="{{ route('pengelolaan', ['username' => $username]) }}">Pengelolaan Menu</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="{{ route('profile', ['username' => $username]) }}">Profil Member</a>
+                </li>
+            </ul>
+            <div class="d-flex align-items-center gap-2">
+                <span class="badge bg-danger-subtle text-danger p-2 rounded-pill">✨ {{ $username }}</span>
+                <a href="{{ route('login') }}" class="btn btn-outline-danger btn-sm rounded-pill">Logout</a>
+            </div>
         </div>
     </div>
-    </nav>
+</nav>
+

@@ -1,32 +1,59 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login-Sweet Bakery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>
+    body{
+        font-family: 'Poppins', sans-serif;
+        background-color: #fff5f7;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    .card-login{
+        background: white;
+        border-radius: 20px;
+        border: 2px solid rgb(255, 211, 219);
+        box-shadow: 0px 8px 20px  rgba(255, 133, 161, 0.15);
+        width:  100%;
+        max-width: 400px;
+        margin:  0 auto;
+        padding: 30px;
+    }
+    .btn-pink{
+        background-color: pink;
+        color: white;
+        border-radius: 25px;
+        font-weight: 600;
+        padding: 10px 0px;
+    }
+    .btn-pink:hover{
+        background-color: palevioletred
+        color: white;
+    }
+</style>
+</head>
+<body>
+    <div class="card card-login">
+        <div class="text-center mb-4">
+            <h2 style="font-size: 40px">🍰</h2>
+            <h4 class="fw-bold text-danger">Sweet Bakery</h4>
+            <p class="text-muted small">Silakan Masuk☺️</p>
+        </div>
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
-        <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-    </head>
-    <body>
-    {{-- <x-navbar/> --}}
-<form action={{ route('login.store') }} method="POST" class="max-w-sm mx-auto min-h-screen flex flex-col justify-center">
-    @csrf
-  <div class="mb-5">
-    <label for="email" class="block mb-2.5 text-sm font-medium text-heading">Your email</label>
-    <input name="email" type="email" id="email" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="name@flowbite.com" required />
-  </div>
-  <div class="mb-5">
-    <label for="password" class="block mb-2.5 text-sm font-medium text-heading">Your password</label>
-    <input name="password" type="password" id="password" class="bg-neutral-secondary-medium border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" placeholder="••••••••" required />
-  </div>
-  <label for="remember" class="flex items-center mb-5">
-    <input name="rememberme" id="remember" type="checkbox" value="" class="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft" required />
-    <p class="ms-2 text-sm font-medium text-heading select-none">I agree with the <a href="#" class="text-fg-brand hover:underline">terms and conditions</a>.</p>
-  </label>
-  <button type="submit" class="text-white bg-blue-900 w-full box-border border border-transparent hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium leading-5 rounded-base text-sm px-4 py-2.5 focus:outline-none">Submit</button>
-</form>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
-    </body>
+        <form action="{{route('login.post')}}" method="POST">
+            @csrf
+            <div class="mb-3">
+                <label for="username" class="form-label fw-semibold">Nama / Username</label>
+                <input type="text" class="form-control rounded-pill px-3" id="username" name="username" placeholder="Masukkan nama kamu..." required>
+            </div>
+            <button type="submit" class="btn btn-pink w-100 mt-2">Masuk ke Bakery ✨</button>
+        </form>
+    </div>
+
+</body>
 </html>
